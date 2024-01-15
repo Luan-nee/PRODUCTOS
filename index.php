@@ -5,7 +5,7 @@
         if(isset($_POST['btn_eliminar'])){
             header("location:actionPHP/deleteProduct.php");
         }else if(isset($_POST['btn_update'])){
-            header("location:actionPHP/modifi.php");
+            header("location:actionPHP/modifi.php?num=20");
         }
     }
 ?>
@@ -24,9 +24,9 @@
     <section id="conteiner_producto" class="conteiner_producto">
         <?php 
         $AllProduct = $SQL_BDD -> getAllProduct();
-
+        
         foreach($AllProduct as $product){ ?>
-            <form class="producto" action="index.php" method="post">
+            <section class="producto">
 
                 <section class="img-product">
                 <img src="data:image/jpeg;base64,<?php echo base64_encode($product['foto']);?>" alt=""> 
@@ -36,19 +36,15 @@
                     <h2>
                         <?php echo $product['nombre']; ?>
                     </h2>
-                    <button 
-                    class="btn_update"
-                    type="submit" 
-                    value="<?php echo $product['id']; ?>" 
-                    name="btn_update"
-                    >MODIFICAR PRODUCT</button>
+                    <a 
+                    class="btn_update" 
+                    href="formulario.php?getid=<?php echo $product['id']; ?>"
+                    >MODIFICAR PRODUCT</a>
                     
-                    <button 
+                    <a 
                     class="btn_eliminar"
-                    type="submit" 
-                    value="<?php echo $product['id']; ?>" 
-                    name="btn_eliminar"
-                    >ELIMINAR</button>
+                    href="actionPHP/deleteProduc.php?getid=<?php echo $product['id']; ?>"
+                    >ELIMINAR</a>
                 </section>
 
                 <section class="header">
@@ -95,7 +91,7 @@
                 </section>
 
                 <button class="btn_obtener" type="button">obtener producto</button>
-            </form>
+            </section>
         <?php } ?>
     </section>
 </body>

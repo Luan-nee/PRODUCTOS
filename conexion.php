@@ -73,19 +73,34 @@ class bdd{
         $sentencia -> execute();
         return $sentencia -> fetchAll();
     }
-    public function getProductUser($id_user){
-        $sql = "SELECT * FROM producto WHERE id_user = '$id_user'";
-        $sentencia = $this->conexion -> prepare($sql);
-        $sentencia -> execute();
-        return $sentencia->fetchAll();
-    }
     public function getAllProduct(){
-        $sql = "SELECT * FROM producto;";
+        $sql = "SELECT * FROM producto";
         $sentencia = $this->conexion -> prepare($sql);
         $sentencia -> execute();
         return $sentencia-> fetchAll();
     }
 
+    public function getOneProduct($id_product){
+        $sql = "SELECT * FROM producto WHERE id = $id_product ";
+        $sentencia = $this->conexion -> prepare($sql);
+        $sentencia -> execute();
+        return $sentencia -> fetchAll();
+    }
+    ####### MODIFICAR LOS CAMBIOS DE UN PRODUCTO 
+    public function modify_product($id_product, $nombre, $description,
+    $foto, $unidad_medida, $medition, $unidad_precio, $precio_por_mayor,
+    $stock){
+        $sql = "UPDATE productos SET 
+        nombre = '$nombre',
+        description = '$description',
+        foto = '$foto',
+        unidad_medida = $unidad_medida,
+        medition = $medition,
+        unidad_precio = $unidad_precio,
+        precio_por_mayor = $precio_por_mayor,
+        stock = $stock
+        WHERE id = $id_product";
+        }
     ####### BUSQUEDA DE PRODUCTOS SEGÚN COMO COMIENZA
     public function buscar($text){
         $searchText = $text.'%';
