@@ -9,7 +9,7 @@
         }
     }
 ?>
-    <title>Document</title>
+    <title>PRODUCTOS</title>
     <link rel="stylesheet" href="css/index.css">
     <script defer src="main.js"></script>
 </head>
@@ -43,15 +43,15 @@
                     
                     <a 
                     class="btn_eliminar"
-                    href="actionPHP/deleteProduc.php?getid=<?php echo $product['id']; ?>"
+                    href="actionPHP/deletProduct.php?getid=<?php echo $product['id']; ?>"
                     >ELIMINAR</a>
                 </section>
 
                 <section class="header">
                     <section>
-                        <img src="img/user.jpg" alt="">                  
+                        <img src="img/favicon.png" alt="imagen del usuario.">                  
                     </section>
-                    <h4>nombre completo del usuario que publicó la foto</h4>
+                    <h4>Luan del Sol</h4>
                 </section>
 
                 <section class="description">
@@ -68,7 +68,7 @@
                     <p><?php echo "S/ ".$product['unidad_precio']; ?></p>
 
                     <h3>correo electrónico:</h3>
-                    <p>correo@electronio.com</p>
+                    <p>luandelsol54@gmail.com</p>
                 </article>
 
                 <section class="conteiner-precio">
@@ -83,7 +83,7 @@
                         <?php echo "S/ ".$product['precio_por_mayor']; ?>
                     </p>
                     <p>Stock:
-                        <?php echo $product['stock']." ".$product['medition']."es"; ?>
+                        <?php echo $product['stock']." ".$product['medition']; ?>
                     </p>
                     <p>Fecha de publicación: 
                         <?php echo $product['fecha_public']; ?>

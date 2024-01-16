@@ -88,18 +88,18 @@ class bdd{
     }
     ####### MODIFICAR LOS CAMBIOS DE UN PRODUCTO 
     public function modify_product($id_product, $nombre, $description,
-    $foto, $unidad_medida, $medition, $unidad_precio, $precio_por_mayor,
+    $unidad_medida, $medition, $unidad_precio, $precio_por_mayor,
     $stock){
-        $sql = "UPDATE productos SET 
+        $sql = "UPDATE producto SET 
         nombre = '$nombre',
         description = '$description',
-        foto = '$foto',
-        unidad_medida = $unidad_medida,
+        unidad_medida = '$unidad_medida',
         medition = $medition,
         unidad_precio = $unidad_precio,
         precio_por_mayor = $precio_por_mayor,
         stock = $stock
         WHERE id = $id_product";
+        $this->conexion -> exec($sql);
         }
     ####### BUSQUEDA DE PRODUCTOS SEGÚN COMO COMIENZA
     public function buscar($text){

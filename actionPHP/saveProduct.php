@@ -1,8 +1,4 @@
 <?php
-include("../conexion.php");
-
-$_SESSION['id_user'] = 1;
-
 if($_POST){
 	$nombre = (isset($_POST['name_producto']))?$_POST['name_producto']:"";
 	$description = (isset($_POST['description']))?$_POST['description']:"";
