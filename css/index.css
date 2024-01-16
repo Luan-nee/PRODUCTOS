@@ -1,6 +1,6 @@
 :root{
     --tamXY-imgUser: 2.5em;
-    --tamX-product:22em;
+    --tamX-product:20em;
 
     --colorFondo-claro: #23313cab;
     --colorFondo-oscuro: #0f161c;
@@ -42,7 +42,6 @@ body{
 /*               estilos para CONTENEDOR PRODUCTO              */
 /* ----------------------------------------------------------- */
 .conteiner_producto{
-    margin: 0em 9em;
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -54,12 +53,19 @@ body{
     border-radius: 1em;
     /* display: flex; */
     /* flex-direction: row; */
-    grid-template-columns: auto auto;
+    grid-template-columns: auto 600px;
     grid-template-rows: repeat(3, auto);
     padding: 1em;
     column-gap: 0.5em;
 }
 
+@media (width < 958px){
+    .producto{
+        display: flex;
+        flex-direction: column;
+        gap: 0.3em;
+    }
+}
 /* ----------------------------------------------------------- */
 /*               contenido del producto                        */
 /* ----------------------------------------------------------- */
@@ -127,35 +133,22 @@ body{
     width: var(--tamX-product);
     object-fit: cover;
 }
-@media (width < 1115px){
+@media (width < 500px){
     .img-product img{
-        width: 20em;
+        width: 10em;
     }
-}
-@media (width < 990px){
-    body{
-        font-size: 14px;
+    .producto{
+        font-size: 12px;
     }
-    .img-product img{
-        width: 17em;
+    .title-product{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr;
     }
-}
-@media (width < 840px){
-    .conteiner_producto{
-        margin:0px;
-    }
-}
-@media (width < 570px){
-    .img-product img{
-        width: 14em;
-    }
-}
-@media (width < 507px){
-    body{
-        font-size: 10px;
-    }
-    .img-product img{
-        width: 14em;
+    .title-product h2{
+        grid-column-start: 1;
+        grid-column-end: 3;
+        text-align: center;
     }
 }
 /* ----------------------------------------------------------- */
@@ -213,8 +206,10 @@ body{
 /*             estilos para el BOTÓN DE ELIMINAR                */
 /* ----------------------------------------------------------- */
 .producto .btn_eliminar{
+    text-align: center;
+    text-decoration: none;
     background-color: red;
-    font-size: 1.2em;
+    font-size: 0.9em;
     border-radius: 0.5em;
     color: white;
     border-style: none;
@@ -222,8 +217,10 @@ body{
     cursor: pointer;
 }
 .producto .btn_update{
+    text-align: center;
+    text-decoration: none;
     background-color: rgb(56, 56, 255);
-    font-size: 1.2em;
+    font-size: 0.9em;
     border-radius: 0.5em;
     color: white;
     border-style: none;
