@@ -12,18 +12,7 @@ include("header.php");
   if(isset($_GET['action']) &&  $_GET['action'] == "guardar"){
     include("actionPHP/saveProduct.php");
   }else if(isset($_GET['action']) &&  $_GET['action'] == "modificar"){
-    // include("actionPHP/modifyProduct.php");
-    $SQL_BDD -> modify_product(
-      $_SESSION['tmp_data_idProduct'],
-      $_POST['name_producto'], 
-      $_POST['description'],
-      $_POST['unidad-medida'], // char <!-- ESCOGER LA UNIDAD MATEMÁTICA
-      $_POST['cantidad_unidad_medida'],  // num <!-- ESCOGER el valor de la unidad math
-      $_POST['costo'],
-      $_POST['precio_mayor'], 
-      $_POST['stock']
-    );
-    echo "<script>alert('datos guardados')</script>";
+    include("actionPHP/modifyProduct.php");
   }
 
   if(isset($_GET["getid"])){
@@ -50,7 +39,7 @@ include("header.php");
 			<section class="foto-producto">
 				<label style="position: relative;" class="label-img" for="img-producto">
           <?php if(isset($_GET['getid'])){ ?>
-            <img id="preVisual"src="data:image/jpeg;base64,<?php echo base64_encode($info_Product[0]['foto']);?>" alt="">
+            <img id="preVisual" src="data:image/jpeg;base64,<?php echo base64_encode($info_Product[0]['foto']);?>" alt="">
           <?php }else{ ?>
             <img id="preVisual" src="../../img/icono/img-producto.png" alt="">
           <?php } ?>
